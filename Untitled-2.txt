@@ -1,0 +1,328 @@
+////Mảng 
+1. List (Danh sách trong Python cơ bản)
+List là kiểu dữ liệu cơ bản trong Python và hỗ trợ lưu trữ các giá trị theo thứ tự. List có thể chứa các kiểu dữ liệu khác nhau, như số nguyên, số thực, chuỗi, v.v.
+
+Tạo List và thao tác cơ bản:
+python
+Sao chép mã
+# Tạo list
+my_list = [1, 2, 3, 4, 5]
+
+# Truy cập phần tử trong list
+print(my_list[0])  # In ra phần tử đầu tiên: 1
+
+# Thêm phần tử vào list
+my_list.append(6)
+
+# Loại bỏ phần tử khỏi list
+my_list.remove(3)
+
+# Lặp qua list
+for item in my_list:
+    print(item)
+Ví dụ:
+python
+Sao chép mã
+# List hỗn hợp các kiểu dữ liệu
+my_list = [1, 2.5, "Python", True]
+
+# Truy cập phần tử
+print(my_list[2])  # In ra "Python"
+2. Numpy Array (Mảng trong thư viện Numpy)
+Numpy là thư viện rất mạnh cho tính toán khoa học, với các mảng Numpy hỗ trợ các phép toán vector và ma trận rất hiệu quả. Mảng Numpy khác với List ở chỗ các phần tử trong mảng phải cùng kiểu dữ liệu.
+
+Cài đặt Numpy:
+
+pip install numpy
+Tạo Numpy Array và thao tác cơ bản:
+import numpy as np
+
+# Tạo mảng numpy từ list
+np_array = np.array([1, 2, 3, 4, 5])
+
+# Truy cập phần tử trong numpy array
+print(np_array[0])  # In ra 1
+
+# Thực hiện các phép toán trên mảng numpy
+np_array = np_array * 2  # Mỗi phần tử nhân với 2
+print(np_array)  # In ra [2 4 6 8 10]
+
+# Tạo mảng với các giá trị đặc biệt
+zeros_array = np.zeros(5)  # Mảng 5 phần tử với giá trị 0
+ones_array = np.ones(3)  # Mảng 3 phần tử với giá trị 1
+Một số phép toán với Numpy:
+python
+Sao chép mã
+import numpy as np
+
+# Tạo mảng numpy
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+# Phép cộng mảng
+result = arr1 + arr2
+print(result)  # [5 7 9]
+
+# Phép nhân mảng với scalar
+result = arr1 * 2
+print(result)  # [2 4 6]
+3. Pandas DataFrame (Mảng trong thư viện Pandas)
+Pandas là thư viện phổ biến trong Python cho phân tích dữ liệu, với DataFrame là một cấu trúc dữ liệu 2 chiều (giống như bảng dữ liệu). Pandas rất mạnh mẽ trong việc xử lý dữ liệu dạng bảng (CSV, Excel, v.v.).
+
+Cài đặt Pandas:
+bash
+Sao chép mã
+pip install pandas
+Tạo Pandas DataFrame và thao tác cơ bản:
+python
+Sao chép mã
+import pandas as pd
+
+# Tạo DataFrame từ dictionary
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 30, 35],
+    'City': ['New York', 'Los Angeles', 'Chicago']
+}
+
+df = pd.DataFrame(data)
+
+# In DataFrame
+print(df)
+
+# Truy cập cột trong DataFrame
+print(df['Name'])  # In ra cột "Name"
+
+# Truy cập dòng theo chỉ số (lập chỉ số từ 0)
+print(df.iloc[1])  # In ra dòng thứ 2
+
+# Lọc dữ liệu theo điều kiện
+filtered_df = df[df['Age'] > 30]
+print(filtered_df)
+Các phép toán trên DataFrame:
+python
+Sao chép mã
+import pandas as pd
+
+# Tạo DataFrame
+data = {
+    'A': [1, 2, 3],
+    'B': [4, 5, 6]
+}
+df = pd.DataFrame(data)
+
+# Phép cộng cột
+df['Sum'] = df['A'] + df['B']
+print(df)
+
+# Thêm cột mới
+df['C'] = df['A'] * df['B']
+print(df)
+Đọc và ghi file CSV với Pandas:
+python
+Sao chép mã
+import pandas as pd
+
+# Đọc file CSV
+df = pd.read_csv('data.csv')
+
+# Ghi DataFrame vào file CSV
+df.to_csv('output.csv', index=False)
+////////////csv
+1. Đọc file CSV
+Sử dụng csv.reader (mỗi dòng là một danh sách các giá trị)
+python
+Sao chép mã
+import csv
+
+# Đọc file CSV
+with open("example.csv", mode="r", encoding="utf-8") as file:
+    csv_reader = csv.reader(file)
+    for row in csv_reader:
+        print(row)  # Mỗi dòng là một danh sách
+Đọc và lưu vào danh sách
+python
+Sao chép mã
+import csv
+
+# Đọc file CSV và lưu vào danh sách
+data = []
+with open("example.csv", mode="r", encoding="utf-8") as file:
+    csv_reader = csv.reader(file)
+    for row in csv_reader:
+        data.append(row)
+
+print("Nội dung CSV:", data)
+Ví dụ file example.csv:
+sql
+Sao chép mã
+Name,Age,City
+Alice,25,New York
+Bob,30,Los Angeles
+Charlie,35,Chicago
+2. Ghi file CSV
+Sử dụng csv.writer
+python
+Sao chép mã
+import csv
+
+# Ghi file CSV
+with open("output.csv", mode="w", encoding="utf-8", newline="") as file:
+    csv_writer = csv.writer(file)
+
+    # Ghi một dòng tiêu đề
+    csv_writer.writerow(["Name", "Age", "City"])
+
+    # Ghi nhiều dòng
+    csv_writer.writerows([
+        ["Alice", 25, "New York"],
+        ["Bob", 30, "Los Angeles"],
+        ["Charlie", 35, "Chicago"]
+    ])
+File output.csv sau khi ghi:
+sql
+Sao chép mã
+Name,Age,City
+Alice,25,New York
+Bob,30,Los Angeles
+Charlie,35,Chicago
+3. Đọc file CSV bằng DictReader
+Mỗi dòng trong file CSV được lưu dưới dạng dictionary với tiêu đề làm key.
+python
+Sao chép mã
+import csv
+
+# Đọc file CSV dưới dạng dictionary
+with open("example.csv", mode="r", encoding="utf-8") as file:
+    csv_reader = csv.DictReader(file)
+    for row in csv_reader:
+        print(row)  # Mỗi dòng là một dictionary
+Output:
+python
+Sao chép mã
+{'Name': 'Alice', 'Age': '25', 'City': 'New York'}
+{'Name': 'Bob', 'Age': '30', 'City': 'Los Angeles'}
+{'Name': 'Charlie', 'Age': '35', 'City': 'Chicago'}
+4. Ghi file CSV bằng DictWriter
+Ghi file CSV từ danh sách các dictionary.
+python
+Sao chép mã
+import csv
+
+# Ghi file CSV từ dictionary
+data = [
+    {"Name": "Alice", "Age": 25, "City": "New York"},
+    {"Name": "Bob", "Age": 30, "City": "Los Angeles"},
+    {"Name": "Charlie", "Age": 35, "City": "Chicago"}
+]
+
+with open("output.csv", mode="w", encoding="utf-8", newline="") as file:
+    # Tạo DictWriter và ghi tiêu đề
+    csv_writer = csv.DictWriter(file, fieldnames=["Name", "Age", "City"])
+    csv_writer.writeheader()
+
+    # Ghi các dòng dữ liệu
+    csv_writer.writerows(data)
+File output.csv sau khi ghi:
+sql
+Sao chép mã
+Name,Age,City
+Alice,25,New York
+Bob,30,Los Angeles
+Charlie,35,Chicago
+5. Lưu ý quan trọng
+newline="": Khi mở file CSV để ghi, nên dùng newline="" để tránh việc thêm dòng trống giữa các dòng dữ liệu.
+Encoding: Dùng encoding utf-8 để hỗ trợ các ký tự đặc biệt.
+Dữ liệu số: Các giá trị trong file CSV mặc định là chuỗi. Bạn cần chuyển đổi chúng sang kiểu số nếu cần.
+
+//////////txt
+1. Mở file
+Sử dụng hàm open() với các chế độ:
+
+"r": Chế độ đọc (read).
+"w": Chế độ ghi (write), xóa nội dung cũ nếu file đã tồn tại.
+"a": Chế độ ghi thêm (append).
+"r+": Chế độ vừa đọc vừa ghi.
+2. Đọc file (read, readline, readlines)
+Ví dụ:
+python
+Sao chép mã
+# Đọc file
+with open("example.txt", "r") as file:
+    content = file.read()  # Đọc toàn bộ nội dung file
+    print("Nội dung file:")
+    print(content)
+
+# Đọc từng dòng
+with open("example.txt", "r") as file:
+    for line in file:
+        print("Dòng:", line.strip())  # Xóa ký tự xuống dòng
+
+# Đọc thành danh sách các dòng
+with open("example.txt", "r") as file:
+    lines = file.readlines()  # Mỗi dòng là một phần tử trong danh sách
+    print("Danh sách các dòng:", lines)
+3. Ghi file (write, writelines)
+Ví dụ:
+python
+Sao chép mã
+# Ghi đè nội dung vào file
+with open("example.txt", "w") as file:
+    file.write("Hello, đây là nội dung mới.\n")
+    file.write("Dòng thứ hai.\n")
+
+# Ghi thêm nội dung vào file
+with open("example.txt", "a") as file:
+    file.write("Nội dung thêm vào cuối file.\n")
+
+# Ghi danh sách các dòng
+lines = ["Dòng 1\n", "Dòng 2\n", "Dòng 3\n"]
+with open("example.txt", "w") as file:
+    file.writelines(lines)
+4. Kiểm tra file tồn tại trước khi mở
+Sử dụng thư viện os hoặc pathlib:
+
+python
+Sao chép mã
+import os
+
+if os.path.exists("example.txt"):
+    with open("example.txt", "r") as file:
+        print(file.read())
+else:
+    print("File không tồn tại!")
+5. Đọc/Ghi file nhị phân (binary)
+Ví dụ:
+python
+Sao chép mã
+# Đọc file nhị phân
+with open("example.bin", "rb") as file:
+    binary_data = file.read()
+    print("Dữ liệu nhị phân:", binary_data)
+
+# Ghi file nhị phân
+with open("example.bin", "wb") as file:
+    file.write(b"\xDE\xAD\xBE\xEF")  # Ghi dữ liệu nhị phân
+6. Một ví dụ đầy đủ
+Đọc nội dung từ một file, xử lý, và ghi kết quả ra file khác:
+
+python
+Sao chép mã
+# Đọc file đầu vào, xử lý nội dung và ghi ra file đầu ra
+input_file = "input.txt"
+output_file = "output.txt"
+
+with open(input_file, "r") as infile:
+    content = infile.readlines()  # Đọc từng dòng
+
+# Xử lý nội dung (chuyển tất cả thành chữ hoa)
+processed_content = [line.upper() for line in content]
+
+with open(output_file, "w") as outfile:
+    outfile.writelines(processed_content)
+
+print(f"Nội dung đã được xử lý và ghi vào {output_file}.")
+7. Lưu ý quan trọng
+Dùng with open(...) as ...: để tự động đóng file sau khi xử lý xong.
+Kiểm tra quyền truy cập file trước khi đọc/ghi để tránh lỗi.
+Khi xử lý file lớn, cân nhắc đọc và ghi theo từng dòng thay vì toàn bộ nội dung.

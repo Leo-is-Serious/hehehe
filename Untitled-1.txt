@@ -1,0 +1,1320 @@
+14.	Liệt kê tất cả “ước số” của số nguyên dương n.
+n = int(input())
+for i in range(1,n+1,1):
+    if(n % i == 0): 
+      print(i,end = " ")
+15.	Tính tổng tất cả “ước số” của số nguyên dương n.
+n = int(input())
+a = 0
+for i in range(1,n+1,1):
+    if(n % i == 0): 
+      a += i
+print("Tong cac uoc cua n la : ",a,end = " ")
+16.	Tính tích tất cả “ước số” của số nguyên dương n.
+n = int(input())
+a = 1
+for i in range(1,n+1,1):
+    if(n % i == 0): 
+      a *= i
+print("Tich cac uoc cua n la : ",a,end = " ")
+17.	Đếm số lượng “ước số” của số nguyên dương n.
+n = int(input())
+a = 0
+for i in range(1,n+1,1):
+    if(n % i == 0): 
+      a += 1
+print("So luong cac uoc cua n la : ",a,end = " ")
+18.	Liệt kê tất cả “ước số lẻ” của số nguyên dương n.
+n = int(input())
+print("cac uoc so le la : ",end = " ")
+for i in range(1,n+1,1):
+    if(n % i == 0 and i % 2 != 0): 
+     print(i,end = " ")
+19.	Tính tổng tất cả “ước số chẵn” của số nguyên dương n.
+n = int(input())
+a = 0
+for i in range(1,n+1,1):
+    if(n % i == 0 and i % 2 == 0): 
+     a += i
+print(a)
+20.	Tính tích tất cả “ước số lẻ” của số nguyên dương n.
+n = int(input())
+a = 1
+for i in range(1,n+1,1):
+    if(n % i == 0 and i % 2 != 0): 
+     a *= i
+print(a)
+21.	Đếm số lượng “ước số chẵn” của số nguyên dương n.
+n = int(input())
+a  = 0
+print("So luong uoc so le la : ",end = " ")
+for i in range(1,n+1,1):
+    if(n % i == 0 and i % 2 != 0): 
+     a += 1
+print(a)
+22.	Cho số nguyên dương n. Tính tổng các ước số nhỏ hơn chính nó.
+n = int(input())
+a = 0
+for i in range(1,n,1):
+    if(n % i == 0 ): 
+     a += i
+print(a,end = " ")
+23.	Tìm ước số lẻ lớn nhất của số nguyên dương n. Ví dụ n = 100 ước lẻ lớn nhất của 100 là 25.
+n = int(input())
+for i in range(1,n+1,1):
+    if(n % i == 0 and i % 2 != 0): 
+     a = i
+print(a,end = " ")
+24.	Cho số nguyên dương n. Kiểm tra số dương n có phải là số hoàn thiện hay không?
+ def la_so_hoan_thien(n):
+    tong_uoc = sum(i for i in range(1, n) if n % i == 0)
+    return tong_uoc == n
+
+n = int(input("Nhập số nguyên dương n: "))
+if la_so_hoan_thien(n):
+    print(f"{n} là số hoàn thiện")
+else:
+    print(f"{n} không phải là số hoàn thiện")
+
+25.	Cho số nguyên dương n. Kiểm tra số nguyên dương n có phải là số nguyên tố hay không?
+def la_so_nguyen_to(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+n = int(input("Nhập số nguyên dương n: "))
+if la_so_nguyen_to(n):
+    print(f"{n} là số nguyên tố")
+else:
+    print(f"{n} không phải là số nguyên tố")
+
+26.	Cho số nguyên dương n. Kiểm tra số nguyên dương n có phải là số chính phương hay không?
+def la_so_chinh_phuong(n):
+    can = int(n**0.5)
+    return can * can == n
+
+n = int(input("Nhập số nguyên dương n: "))
+if la_so_chinh_phuong(n):
+    print(f"{n} là số chính phương")
+else:
+    print(f"{n} không phải là số chính phương")
+
+27.	Cho n là số nguyên dương. Hãy tìm giá trị nguyên dương k lớn nhất sao cho S(k) < n. Trong đó chuỗi S(k) được định nghĩa như sau : S(k) = 1 + 2 + 3 + … + k.
+def tim_k_lon_nhat(n):
+    k = 0
+    s = 0
+    while s + (k + 1) < n:
+        k += 1
+        s += k
+    return k
+
+n = int(input("Nhập số nguyên dương n: "))
+k = tim_k_lon_nhat(n)
+print(f"Giá trị nguyên dương k lớn nhất sao cho S(k) < {n} là {k}")
+
+28.	Hãy đếm số lượng chữ số của số nguyên dương n.
+def dem_so_chu_so(n):
+    return len(str(n))
+
+n = int(input("Nhập số nguyên dương n: "))
+so_chu_so = dem_so_chu_so(n)
+print(f"Số lượng chữ số của {n} là {so_chu_so}")
+
+29.	Hãy tính tổng các chữ số của số nguyên dương n.
+def tong_cac_chu_so(n):
+    return sum(int(chu_so) for chu_so in str(n))
+
+n = int(input("Nhập số nguyên dương n: "))
+tong = tong_cac_chu_so(n)
+print(f"Tổng các chữ số của {n} là {tong}")
+
+30.	Hãy tính tích các chữ số của số nguyên dương n.
+def tich_cac_chu_so(n):
+    tich = 1
+    for chu_so in str(n):
+        tich *= int(chu_so)
+    return tich
+
+n = int(input("Nhập số nguyên dương n: "))
+tich = tich_cac_chu_so(n)
+print(f"Tích các chữ số của {n} là {tich}")
+
+31.	Hãy đếm số lượng chữ số lẻ của số nguyên dương n.
+def dem_chu_so_le(n):
+    return sum(1 for chu_so in str(n) if int(chu_so) % 2 != 0)
+
+n = int(input("Nhập số nguyên dương n: "))
+so_chu_so_le = dem_chu_so_le(n)
+print(f"Số lượng chữ số lẻ của {n} là {so_chu_so_le}")
+
+32.	Hãy tính tổng các chữ số chẵn của số nguyên dương n.
+def tong_cac_chu_so_chan(n):
+    return sum(int(chu_so) for chu_so in str(n) if int(chu_so) % 2 == 0)
+
+n = int(input("Nhập số nguyên dương n: "))
+tong = tong_cac_chu_so_chan(n)
+print(f"Tổng các chữ số chẵn của {n} là {tong}")
+
+33.	Hãy tính tích các chữ số lẻ của số nguyên dương n.
+def tich_cac_chu_so_le(n):
+    tich = 1
+    found_le = False
+    for chu_so in str(n):
+        if int(chu_so) % 2 != 0:
+            tich *= int(chu_so)
+            found_le = True
+    return tich if found_le else 0
+
+n = int(input("Nhập số nguyên dương n: "))
+tich = tich_cac_chu_so_le(n)
+print(f"Tích các chữ số lẻ của {n} là {tich}")
+
+34.	Cho số nguyên dương n. Hãy tìm chữ số đầu tiên của n.
+def chu_so_dau(n):
+    return int(str(n)[0])
+
+n = int(input("Nhập số nguyên dương n: "))
+chuso_dau = chu_so_dau(n)
+print(f"Chữ số đầu tiên của {n} là {chuso_dau}")
+
+35.	Hãy tìm chữ số đảo ngược của số nguyên dương n.
+def chuso_dao_nguoc(n):
+    return int(str(n)[::-1])
+
+n = int(input("Nhập số nguyên dương n: "))
+chuso_dao_nguoc = chuso_dao_nguoc(n)
+print(f"Chữ số đảo ngược của {n} là {chuso_dao_nguoc}")
+
+36.	Tìm chữ số lớn nhất của số nguyên dương n.
+def chuso_lon_nhat(n):
+    return max(int(chu_so) for chu_so in str(n))
+
+n = int(input("Nhập số nguyên dương n: "))
+chuso_lon_nhat = chuso_lon_nhat(n)
+print(f"Chữ số lớn nhất của {n} là {chuso_lon_nhat}")
+
+37.	Tìm chữ số nhỏ nhất của số nguyên dương n.
+def chuso_nho_nhat(n):
+    return min(int(chu_so) for chu_so in str(n))
+
+n = int(input("Nhập số nguyên dương n: "))
+chuso_nho_nhat = chuso_nho_nhat(n)
+print(f"Chữ số nhỏ nhất của {n} là {chuso_nho_nhat}")
+
+38.	Hãy đếm số lượng chữ số lớn nhất của số nguyên dương n.
+def dem_chu_so_lon_nhat(n):
+    max_digit = max(int(chu_so) for chu_so in str(n))
+    return str(n).count(str(max_digit))
+
+n = int(input("Nhập số nguyên dương n: "))
+so_luong = dem_chu_so_lon_nhat(n)
+print(f"Số lượng chữ số lớn nhất của {n} là {so_luong}")
+
+39.	Hãy đếm số lượng chữ số nhỏ nhất của số nguyên dương n.
+def dem_chu_so_nho_nhat(n):
+    min_digit = min(int(chu_so) for chu_so in str(n))
+    return str(n).count(str(min_digit))
+
+n = int(input("Nhập số nguyên dương n: "))
+so_luong = dem_chu_so_nho_nhat(n)
+print(f"Số lượng chữ số nhỏ nhất của {n} là {so_luong}")
+
+40.	Hãy đêm số lượng chữ số đầu tiên của số nguyên dương n.
+def dem_chu_so_dau(n):
+    first_digit = str(n)[0]
+    return str(n).count(first_digit)
+
+n = int(input("Nhập số nguyên dương n: "))
+so_luong = dem_chu_so_dau(n)
+print(f"Số lượng chữ số đầu tiên của {n} là {so_luong}")
+
+41.	Hãy kiểm tra số nguyên dương n có toàn chữ số lẻ hay không?
+def kiem_tra_tat_ca_chu_so_le(n):
+    return all(int(chu_so) % 2 != 0 for chu_so in str(n))
+
+n = int(input("Nhập số nguyên dương n: "))
+if kiem_tra_tat_ca_chu_so_le(n):
+    print(f"{n} có toàn chữ số lẻ")
+else:
+    print(f"{n} không có toàn chữ số lẻ")
+
+42.	Hãy kiểm tra số nguyên dương n có toàn chữ số chẵn hay không?
+def kiem_tra_tat_ca_chu_so_chan(n):
+    return all(int(chu_so) % 2 == 0 for chu_so in str(n))
+
+n = int(input("Nhập số nguyên dương n: "))
+if kiem_tra_tat_ca_chu_so_chan(n):
+    print(f"{n} có toàn chữ số chẵn")
+else:
+    print(f"{n} không có toàn chữ số chẵn")
+
+43.	Hãy kiểm tra số nguyên dương n có toàn chữ số chẵn hay không?
+def kiem_tra_tat_ca_chu_so_chan(n):
+    return all(int(chu_so) % 2 == 0 for chu_so in str(n))
+
+n = int(input("Nhập số nguyên dương n: "))
+if kiem_tra_tat_ca_chu_so_chan(n):
+    print(f"{n} có toàn chữ số chẵn")
+else:
+    print(f"{n} không có toàn chữ số chẵn")
+
+44.	Hãy kiểm tra số nguyên dương n có phải số đối xứng hay không?
+def kiem_tra_so_doi_xung(n):
+    return str(n) == str(n)[::-1]
+
+n = int(input("Nhập số nguyên dương n: "))
+if kiem_tra_so_doi_xung(n):
+    print(f"{n} là số đối xứng")
+else:
+    print(f"{n} không phải là số đối xứng")
+
+45.	Hãy kiểm tra các chữ số của số nguyên dương n có tăng dần từ trái sang phải hay không?
+def kiem_tra_chu_so_tang_dan(n):
+    n_str = str(n)
+    return all(n_str[i] < n_str[i + 1] for i in range(len(n_str) - 1))
+
+n = int(input("Nhập số nguyên dương n: "))
+if kiem_tra_chu_so_tang_dan(n):
+    print(f"Các chữ số của {n} tăng dần từ trái sang phải")
+else:
+    print(f"Các chữ số của {n} không tăng dần từ trái sang phải")
+
+46.	Hãy kiểm tra các chữ số của số nguyên dương n có giảm dần từ trái sang phải hay không?
+def kiem_tra_chu_so_giam_dan(n):
+    n_str = str(n)
+    return all(n_str[i] > n_str[i + 1] for i in range(len(n_str) - 1))
+
+n = int(input("Nhập số nguyên dương n: "))
+if kiem_tra_chu_so_giam_dan(n):
+    print(f"Các chữ số của {n} giảm dần từ trái sang phải")
+else:
+    print(f"Các chữ số của {n} không giảm dần từ trái sang phải")
+
+47.	Cho hai số nguyên dương a và b. Hãy vẽ lưu đồ tìm bội chung nhỏ nhất của hai giá trị này.
+48.	Giải phương trình 𝑎𝑥 + 𝑏 = 0.
+def giai_phuong_trinh(a, b):
+    if a == 0:
+        if b == 0:
+            return "Phương trình có vô số nghiệm"
+        else:
+            return "Phương trình vô nghiệm"
+    else:
+        x = -b / a
+        return f"Nghiệm của phương trình là x = {x}"
+
+# Nhập giá trị a và b
+a = float(input("Nhập giá trị a: "))
+b = float(input("Nhập giá trị b: "))
+
+# In kết quả
+print(giai_phuong_trinh(a, b))
+
+49.	Giải phương trình 𝑎𝑥2 + 𝑏𝑥 + 𝑐 = 0.
+import math
+
+def giai_phuong_trinh_bac_2(a, b, c):
+    delta = b**2 - 4*a*c
+    
+    if delta > 0:
+        x1 = (-b + math.sqrt(delta)) / (2 * a)
+        x2 = (-b - math.sqrt(delta)) / (2 * a)
+        return f"Phương trình có 2 nghiệm phân biệt: x1 = {x1}, x2 = {x2}"
+    elif delta == 0:
+        x = -b / (2 * a)
+        return f"Phương trình có nghiệm kép: x = {x}"
+    else:
+        return "Phương trình vô nghiệm trong tập hợp số thực"
+
+# Nhập giá trị a, b, c
+a = float(input("Nhập giá trị a: "))
+b = float(input("Nhập giá trị b: "))
+c = float(input("Nhập giá trị c: "))
+
+# In kết quả
+print(giai_phuong_trinh_bac_2(a, b, c))
+
+50.	Tính S(x, n) = 𝑥 − 𝑥2 + 𝑥3 + ⋯ + (−1)n+1𝑥𝑛	.
+ def tinh_S(x, n):
+    S = 0
+    for k in range(1, n + 1):
+        S += (-1)**(k + 1) * x**k
+    return S
+
+# Nhập giá trị x và n
+x = float(input("Nhập giá trị x: "))
+n = int(input("Nhập giá trị n: "))
+
+# Tính và in kết quả
+result = tinh_S(x, n)
+print(f"Giá trị của S(x, n) là: {result}")
+
+51.	Tính S(x, n) = −𝑥2 + 𝑥4 + ⋯ + (−1)n𝑥2𝑛	.
+def tinh_S(x, n):
+    S = 0
+    for k in range(1, n + 1):
+        S += (-1)**k * x**(2*k)
+    return S
+
+# Nhập giá trị x và n
+x = float(input("Nhập giá trị x: "))
+n = int(input("Nhập giá trị n: "))
+
+# Tính và in kết quả
+result = tinh_S(x, n)
+print(f"Giá trị của S(x, n) là: {result}")
+
+52.	Tính S(x, n) = 𝑥 − 𝑥3 + 𝑥5 + ⋯ + (−1)n𝑥2𝑛+1 .
+def tinh_S(x, n):
+    S = 0
+    for k in range(n + 1):
+        S += (-1)**k * x**(2*k + 1)
+    return S
+
+# Nhập giá trị x và n
+x = float(input("Nhập giá trị x: "))
+n = int(input("Nhập giá trị n: "))
+
+# Tính và in kết quả
+result = tinh_S(x, n)
+print(f"Giá trị của S(x, n) là: {result}")
+
+53.	Viết chương trình tìm số lớn nhất trong ba số thực a, b, c.
+def tim_so_lon_nhat(a, b, c):
+    return max(a, b, c)
+
+# Nhập ba số thực a, b, c
+a = float(input("Nhập giá trị a: "))
+b = float(input("Nhập giá trị b: "))
+c = float(input("Nhập giá trị c: "))
+
+# Tìm và in số lớn nhất
+max_value = tim_so_lon_nhat(a, b, c)
+print(f"Số lớn nhất trong ba số {a}, {b}, {c} là: {max_value}")
+
+82.	Viết chương trình nhập vào hai số thực. Kiểm tra xem chúng có cùng dấu hay không.
+def kiem_tra_cung_dau(a, b):
+    return (a > 0 and b > 0) or (a < 0 and b < 0)
+
+# Nhập hai số thực
+a = float(input("Nhập giá trị a: "))
+b = float(input("Nhập giá trị b: "))
+
+# Kiểm tra và in kết quả
+if kiem_tra_cung_dau(a, b):
+    print(f"{a} và {b} có cùng dấu.")
+else:
+    print(f"{a} và {b} không có cùng dấu.")
+
+83.	Giải phương trình và biện luận phương trình 𝑎𝑥 + 𝑏 = 0.
+def giai_phuong_trinh(a, b):
+    if a == 0:
+        if b == 0:
+            return "Phương trình có vô số nghiệm."
+        else:
+            return "Phương trình vô nghiệm."
+    else:
+        x = -b / a
+        return f"Nghiệm của phương trình là x = {x}"
+
+# Nhập giá trị a và b
+a = float(input("Nhập giá trị a: "))
+b = float(input("Nhập giá trị b: "))
+
+# Biện luận và in kết quả
+print(giai_phuong_trinh(a, b))
+
+84.	Nhập vào tháng của một năm. Cho biết tháng thuộc quí mấy trong năm.
+def xac_dinh_quy(thang):
+    if thang in [1, 2, 3]:
+        return "Quý 1"
+    elif thang in [4, 5, 6]:
+        return "Quý 2"
+    elif thang in [7, 8, 9]:
+        return "Quý 3"
+    elif thang in [10, 11, 12]:
+        return "Quý 4"
+    else:
+        return "Tháng không hợp lệ"
+
+# Nhập vào tháng
+thang = int(input("Nhập tháng (1-12): "))
+
+# Kiểm tra và in kết quả
+print(xac_dinh_quy(thang))
+
+85.	Tính S(n) = 13 + 23 + 33 + … + n3.
+def tinh_S(n):
+    S = sum(k**3 for k in range(1, n + 1))
+    return S
+
+# Nhập giá trị n
+n = int(input("Nhập giá trị n: "))
+
+# Tính và in kết quả
+result = tinh_S(n)
+print(f"Tổng S(n) = {result}")
+
+86.	Tìm số nguyên dương n nhỏ nhất sao cho 1 + 2 + … + n > 10000.
+def tim_n_min():
+    n = 1
+    while (n * (n + 1)) // 2 <= 10000:
+        n += 1
+    return n
+
+# Tìm và in kết quả
+n_min = tim_n_min()
+print(f"Số nguyên dương n nhỏ nhất sao cho 1 + 2 + ... + n > 10000 là: {n_min}")
+
+87.	Hãy sử dụng vòng lặp for để xuất tất cả các ký tự A tới Z.
+for i in range(65, 91):  # 65 là mã ASCII của 'A', 91 là giới hạn ngoài cùng không bao gồm
+    print(chr(i), end=" ")
+
+88.	Viết chương trình tính tổng các giá trị lẻ nguyên dương nhỏ hơn N.
+def tinh_tong_lien_quy(N):
+    tong = 0
+    for i in range(1, N):
+        if i % 2 != 0:  # Kiểm tra nếu i là số lẻ
+            tong += i
+    return tong
+
+# Nhập giá trị N
+N = int(input("Nhập giá trị N: "))
+
+# Tính và in kết quả
+result = tinh_tong_lien_quy(N)
+print(f"Tổng các giá trị lẻ nhỏ hơn {N} là: {result}")
+
+89.		Viết chương trình tìm số nguyên dương m lớn nhất sao cho 1 + 2 + 3 + … + m < N.
+def tim_m_max(N):
+    m = 1
+    while (m * (m + 1)) // 2 < N:
+        m += 1
+    return m - 1
+
+# Nhập giá trị N
+N = int(input("Nhập giá trị N: "))
+
+# Tìm và in kết quả
+m_max = tim_m_max(N)
+print(f"Số nguyên dương m lớn nhất sao cho 1 + 2 + 3 + ... + m < {N} là: {m_max}")
+
+90.	In tất cả các số nguyên dương lẻ nhỏ hơn 100.
+for i in range(1, 100, 2):  # Bắt đầu từ 1, bước nhảy là 2 để chỉ lấy số lẻ
+    print(i, end=" ")
+
+91.	Tìm ước số chung lớn nhất của hai số nguyên dương.
+def uscln(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+# Nhập vào hai số nguyên dương a và b
+a = int(input("Nhập số nguyên dương a: "))
+b = int(input("Nhập số nguyên dương b: "))
+
+# Tính và in kết quả
+result = uscln(a, b)
+print(f"Ước số chung lớn nhất của {a} và {b} là: {result}")
+
+92.	Viết chương trình kiểm tra một số có phải số nguyên tố hay không.
+import math
+
+def kiem_tra_nguyen_to(n):
+    if n <= 1:
+        return False  # Số nhỏ hơn hoặc bằng 1 không phải là số nguyên tố
+    if n <= 3:
+        return True  # 2 và 3 là số nguyên tố
+    if n % 2 == 0 or n % 3 == 0:
+        return False  # Nếu n chia hết cho 2 hoặc 3 thì không phải là số nguyên tố
+    
+    # Kiểm tra các số lẻ từ 5 đến sqrt(n)
+    for i in range(5, int(math.sqrt(n)) + 1, 6):
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+    
+    return True
+
+# Nhập số cần kiểm tra
+n = int(input("Nhập số nguyên dương n: "))
+
+# Kiểm tra và in kết quả
+if kiem_tra_nguyen_to(n):
+    print(f"{n} là số nguyên tố.")
+else:
+    print(f"{n} không phải là số nguyên tố.")
+
+93.	Viết chương trình in ra tất cả các số lẻ nhỏ hơn 100 trừ các số 5, 7, 93.
+for i in range(1, 100, 2):  # Bắt đầu từ 1, bước nhảy là 2 để lấy các số lẻ
+    if i not in [5, 7, 93]:  # Kiểm tra nếu số không phải là 5, 7, hoặc 93
+        print(i, end=" ")
+
+94.	Viết chương trình nhập 3 số thực. Hãy thay tất cả các số âm bằng trị tuyệt đối của nó.
+# Nhập 3 số thực
+a = float(input("Nhập số thực a: "))
+b = float(input("Nhập số thực b: "))
+c = float(input("Nhập số thực c: "))
+
+# Thay tất cả các số âm bằng trị tuyệt đối của chúng
+a = abs(a)
+b = abs(b)
+c = abs(c)
+
+# In kết quả
+print(f"Sau khi thay các số âm bằng trị tuyệt đối: a = {a}, b = {b}, c = {c}")
+
+95.	Viết chương trình nhập 3 cạnh của một tam giác. Hãy cho biết đó là tam giác gì?
+def kiem_tra_tam_giac(a, b, c):
+    # Kiểm tra xem ba cạnh có tạo thành một tam giác không
+    if a + b <= c or a + c <= b or b + c <= a:
+        return "Không phải là tam giác."
+    
+    # Kiểm tra tam giác vuông
+    if a**2 + b**2 == c**2 or a**2 + c**2 == b**2 or b**2 + c**2 == a**2:
+        return "Tam giác vuông."
+    
+    # Kiểm tra tam giác đều
+    if a == b == c:
+        return "Tam giác đều."
+    
+    # Kiểm tra tam giác cân
+    if a == b or b == c or a == c:
+        return "Tam giác cân."
+    
+    # Nếu không phải tam giác vuông, đều, hay cân thì là tam giác thường
+    return "Tam giác thường."
+
+# Nhập 3 cạnh của tam giác
+a = float(input("Nhập cạnh a: "))
+b = float(input("Nhập cạnh b: "))
+c = float(input("Nhập cạnh c: "))
+
+# Kiểm tra và in kết quả
+result = kiem_tra_tam_giac(a, b, c)
+print(result)
+
+96.	Viết hàm tính S = xy .
+def tinh_luy_thua(x, y):
+    return x ** y
+
+# Nhập vào x và y
+x = float(input("Nhập giá trị x: "))
+y = int(input("Nhập giá trị y: "))
+
+# Tính và in kết quả
+S = tinh_luy_thua(x, y)
+print(f"S = {x} ^ {y} = {S}")
+
+97.	Viết chương trình in bảng cửu chương ra màn hình.
+def in_bang_cuu_chuong():
+    for i in range(1, 10):  # Lặp qua các số từ 1 đến 9
+        for j in range(1, 10):  # Lặp qua các số từ 1 đến 9
+            print(f"{i} x {j} = {i*j}", end="\t")  # In kết quả với tab giữa các cột
+        print()  # In xuống dòng sau mỗi vòng lặp của i
+
+# Gọi hàm để in bảng cửu chương
+in_bang_cuu_chuong()
+
+98.	Cần có tổng 200.000đ từ 3 loại giấy bạc 1000đ, 2000đ, và 5000đ. Lập chương tình để tìm tất cả các phương án có thể.
+def tim_phuong_an():
+    # Tổng tiền cần có
+    tong_tien = 200000
+
+    # Duyệt qua các giá trị của x, y, z
+    for x in range(tong_tien // 1000 + 1):  # Số giấy bạc 1000đ
+        for y in range(tong_tien // 2000 + 1):  # Số giấy bạc 2000đ
+            for z in range(tong_tien // 5000 + 1):  # Số giấy bạc 5000đ
+                # Kiểm tra xem tổng số tiền có bằng 200000đ không
+                if 1000 * x + 2000 * y + 5000 * z == tong_tien:
+                    print(f"Số giấy bạc 1000đ: {x}, 2000đ: {y}, 5000đ: {z}")
+
+# Gọi hàm để tìm tất cả các phương án
+tim_phuong_an()
+
+99.	Viết chương trình nhập họ tên, điểm toán, điểm văn của một học sinh. Tính điểm trung bình và xuất kết quả.
+def tinh_diem_trung_binh():
+    # Nhập họ tên
+    ho_ten = input("Nhập họ tên học sinh: ")
+    
+    # Nhập điểm toán và điểm văn
+    diem_toan = float(input("Nhập điểm toán: "))
+    diem_van = float(input("Nhập điểm văn: "))
+    
+    # Tính điểm trung bình
+    diem_trung_binh = (diem_toan + diem_van) / 2
+    
+    # In kết quả
+    print(f"Họ tên học sinh: {ho_ten}")
+    print(f"Điểm toán: {diem_toan}")
+    print(f"Điểm văn: {diem_van}")
+    print(f"Điểm trung bình: {diem_trung_binh:.2f}")
+
+# Gọi hàm để tính và xuất kết quả
+tinh_diem_trung_binh()
+
+100.	
+def tinh_tong(n):
+    # Tính tổng S(n) = 1 + 2 + 3 + ... + n
+    tong = sum(range(1, n+1))
+    return tong
+
+# Nhập giá trị n
+n = int(input("Nhập vào số nguyên dương n: "))
+
+# Kiểm tra nếu n là số nguyên dương
+if n > 0:
+    # Tính và in kết quả
+    ket_qua = tinh_tong(n)
+    print(f"Tổng S({n}) = {ket_qua}")
+else:
+    print("Vui lòng nhập một số nguyên dương.")
+
+101.	Viết chương trình nhập n và tính tổng
+S(n) = 𝑥 + 𝑥2 + 𝑥3 + ⋯ + 𝑥𝑛	.
+def tinh_tong(x, n):
+    tong = 0
+    for i in range(1, n+1):
+        tong += x ** i  # Tính x^i và cộng vào tổng
+    return tong
+
+# Nhập giá trị x và n
+x = float(input("Nhập giá trị x: "))
+n = int(input("Nhập giá trị n: "))
+
+# Tính và in kết quả
+ket_qua = tinh_tong(x, n)
+print(f"Tổng S({x}, {n}) = {ket_qua}")
+
+102.	Liệt kê tất cả các số nguyên tố nhỏ hơn n.
+def kiem_tra_so_nguyen_to(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def liet_ke_so_nguyen_to(n):
+    for i in range(2, n):
+        if kiem_tra_so_nguyen_to(i):
+            print(i, end=" ")
+
+# Nhập giá trị n
+n = int(input("Nhập giá trị n: "))
+
+# Liệt kê các số nguyên tố nhỏ hơn n
+liet_ke_so_nguyen_to(n)
+
+103.	Liệt kê tất cả các số chính phương nhỏ hơn n.
+ import math
+
+def liet_ke_so_chinh_phuong(n):
+    # Duyệt qua các số từ 1 đến căn bậc hai của n-1
+    for i in range(1, int(math.sqrt(n)) + 1):
+        # Tính bình phương của i và kiểm tra nếu nhỏ hơn n
+        if i * i < n:
+            print(i * i, end=" ")
+
+# Nhập giá trị n
+n = int(input("Nhập giá trị n: "))
+
+# Liệt kê các số chính phương nhỏ hơn n
+liet_ke_so_chinh_phuong(n)
+
+104.	Tìm giá trị lớn nhất trong mảng một chiều các số thực.
+def tim_max(mang):
+    # Sử dụng hàm max() để tìm giá trị lớn nhất trong mảng
+    return max(mang)
+
+# Nhập mảng các số thực
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(float(input(f"Phần tử {i+1}: ")))
+
+# Tìm giá trị lớn nhất trong mảng
+max_value = tim_max(mang)
+print(f"Giá trị lớn nhất trong mảng là: {max_value}")
+
+105.	Viết hàm tìm một vị trí mà giá trị tại vị trí đó là một giá trị nhỏ nhất trong mảng một chiều các số nguyên.
+def tim_vi_tri_min(mang):
+    # Giả sử phần tử đầu tiên là phần tử nhỏ nhất
+    vi_tri_min = 0
+    min_value = mang[0]
+    
+    # Duyệt qua các phần tử trong mảng để tìm phần tử nhỏ nhất
+    for i in range(1, len(mang)):
+        if mang[i] < min_value:
+            min_value = mang[i]
+            vi_tri_min = i
+    
+    return vi_tri_min
+
+# Nhập mảng các số nguyên
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(int(input(f"Phần tử {i+1}: ")))
+
+# Tìm vị trí phần tử nhỏ nhất trong mảng
+vi_tri = tim_vi_tri_min(mang)
+print(f"Vị trí phần tử nhỏ nhất trong mảng là: {vi_tri}")
+
+106.	Viết hàm kiểm tra trong mảng các số nguyên có tồn tại giá trị chẵn nhỏ hơn 2004 hay không?
+def kiem_tra_chan_nho_hon_2004(mang):
+    # Duyệt qua từng phần tử trong mảng
+    for num in mang:
+        if num % 2 == 0 and num < 2004:  # Kiểm tra điều kiện là chẵn và nhỏ hơn 2004
+            return True  # Nếu tìm thấy, trả về True
+    return False  # Nếu không tìm thấy số nào thỏa mãn, trả về False
+
+# Nhập mảng các số nguyên
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(int(input(f"Phần tử {i+1}: ")))
+
+# Kiểm tra xem mảng có chứa số chẵn nhỏ hơn 2004 không
+if kiem_tra_chan_nho_hon_2004(mang):
+    print("Có tồn tại giá trị chẵn nhỏ hơn 2004 trong mảng.")
+else:
+    print("Không có giá trị chẵn nhỏ hơn 2004 trong mảng.")
+
+107.	Viết hàm đếm số lượng số nguyên tố nhỏ hơn 100 trong mảng.
+def kiem_tra_so_nguyen_to(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def dem_so_nguyen_to_nho_hon_100(mang):
+    count = 0
+    for num in mang:
+        if num < 100 and kiem_tra_so_nguyen_to(num):
+            count += 1
+    return count
+
+# Nhập mảng các số nguyên
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(int(input(f"Phần tử {i+1}: ")))
+
+# Đếm số lượng số nguyên tố nhỏ hơn 100
+so_luong_nguyen_to = dem_so_nguyen_to_nho_hon_100(mang)
+print(f"Số lượng số nguyên tố nhỏ hơn 100 trong mảng là: {so_luong_nguyen_to}")
+
+108.	Viết hàm tính tổng các giá trị âm trong mảng một chiều các số thực.
+def tinh_tong_gia_tri_am(mang):
+    tong = 0
+    # Duyệt qua từng phần tử trong mảng
+    for num in mang:
+        if num < 0:  # Nếu phần tử là số âm
+            tong += num  # Cộng vào tổng
+    return tong
+
+# Nhập mảng các số thực
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(float(input(f"Phần tử {i+1}: ")))
+
+# Tính tổng các giá trị âm trong mảng
+tong_am = tinh_tong_gia_tri_am(mang)
+print(f"Tổng các giá trị âm trong mảng là: {tong_am}")
+
+109.	Viết hàm sắp xếp mảng một chiều các số thực tăng dần.
+def sap_xep_tang_dan(mang):
+    n = len(mang)
+    # Duyệt qua tất cả các phần tử trong mảng
+    for i in range(n):
+        # Cuộc duyệt tiếp theo sẽ giảm bớt đi vì phần tử lớn nhất đã vào vị trí cuối
+        for j in range(0, n-i-1):
+            if mang[j] > mang[j+1]:
+                # Hoán đổi nếu phần tử tại vị trí j lớn hơn phần tử tại vị trí j+1
+                mang[j], mang[j+1] = mang[j+1], mang[j]
+
+# Nhập mảng các số thực
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(float(input(f"Phần tử {i+1}: ")))
+
+# Sắp xếp mảng theo thứ tự tăng dần
+sap_xep_tang_dan(mang)
+
+# In mảng sau khi sắp xếp
+print("Mảng sau khi sắp xếp tăng dần:", mang)
+
+110.	Viết hàm liệt kê các giá trị chẵn trong mảng một chiều các số nguyên.
+def liet_ke_gia_tri_chan(mang):
+    chan = []  # Danh sách lưu các giá trị chẵn
+    # Duyệt qua từng phần tử trong mảng
+    for num in mang:
+        if num % 2 == 0:  # Nếu phần tử là số chẵn
+            chan.append(num)  # Thêm phần tử vào danh sách
+    return chan
+
+# Nhập mảng các số nguyên
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(int(input(f"Phần tử {i+1}: ")))
+
+# Liệt kê các giá trị chẵn trong mảng
+gia_tri_chan = liet_ke_gia_tri_chan(mang)
+
+# In các giá trị chẵn
+if gia_tri_chan:
+    print("Các giá trị chẵn trong mảng là:", gia_tri_chan)
+else:
+    print("Không có giá trị chẵn trong mảng.")
+
+111.	Viết hàm liệt kê các vị trí mà giá trị tại đó là giá trị âm trong mảng một chiều các số thực..
+def liet_ke_vi_tri_gia_tri_am(mang):
+    vi_tri_am = []  # Danh sách lưu các chỉ số có giá trị âm
+    # Duyệt qua từng phần tử trong mảng cùng với chỉ số
+    for i in range(len(mang)):
+        if mang[i] < 0:  # Nếu phần tử là số âm
+            vi_tri_am.append(i)  # Lưu vị trí của số âm
+    return vi_tri_am
+
+# Nhập mảng các số thực
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(float(input(f"Phần tử {i+1}: ")))
+
+# Liệt kê các vị trí có giá trị âm trong mảng
+vi_tri_am = liet_ke_vi_tri_gia_tri_am(mang)
+
+# In các vị trí có giá trị âm
+if vi_tri_am:
+    print("Các vị trí có giá trị âm trong mảng là:", vi_tri_am)
+else:
+    print("Không có giá trị âm trong mảng.")
+
+112.	Viết hàm tìm “giá trị lớn nhất” trong mảng một chiều số thực (lonnhat).
+def lonnhat(mang):
+    # Giả sử phần tử đầu tiên là lớn nhất
+    max_value = mang[0]
+    # Duyệt qua từng phần tử trong mảng từ phần tử thứ hai trở đi
+    for num in mang[1:]:
+        if num > max_value:
+            max_value = num  # Cập nhật max_value nếu tìm được phần tử lớn hơn
+    return max_value
+
+# Nhập mảng các số thực
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(float(input(f"Phần tử {i+1}: ")))
+
+# Tìm giá trị lớn nhất trong mảng
+max_value = lonnhat(mang)
+
+# In giá trị lớn nhất
+print("Giá trị lớn nhất trong mảng là:", max_value)
+
+113.	Tìm “giá trị dương đầu tiên” trong mảng một chiều các số thực (duongdau). Nếu mảng không có giá trị dương thì trả về giá trị -1.
+def duongdau(mang):
+    # Duyệt qua từng phần tử trong mảng
+    for num in mang:
+        if num > 0:  # Nếu phần tử là số dương
+            return num  # Trả về giá trị dương đầu tiên
+    return -1  # Nếu không có giá trị dương, trả về -1
+
+# Nhập mảng các số thực
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(float(input(f"Phần tử {i+1}: ")))
+
+# Tìm giá trị dương đầu tiên trong mảng
+first_positive = duongdau(mang)
+
+# In kết quả
+if first_positive != -1:
+    print("Giá trị dương đầu tiên trong mảng là:", first_positive)
+else:
+    print("Mảng không có giá trị dương.")
+
+114.	Tìm “số chẵn cuối cùng” trong mảng một chiều các số nguyên (chancuoi). Nếu mảng không có giá trị chẵn thì trả về giá trị -1.
+def chancuoi(mang):
+    # Duyệt qua mảng từ cuối đến đầu
+    for num in reversed(mang):
+        if num % 2 == 0:  # Kiểm tra nếu là số chẵn
+            return num  # Trả về số chẵn đầu tiên tìm thấy từ cuối
+    return -1  # Nếu không có số chẵn nào, trả về -1
+
+# Nhập mảng các số nguyên
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(int(input(f"Phần tử {i+1}: ")))
+
+# Tìm số chẵn cuối cùng trong mảng
+last_even = chancuoi(mang)
+
+# In kết quả
+if last_even != -1:
+    print("Số chẵn cuối cùng trong mảng là:", last_even)
+else:
+    print("Mảng không có số chẵn.")
+
+115.	Tìm “một vị trí mà giá trị tại vị trí đó là giá trị nhỏ nhất” trong mảng một chiều các số thực (vitrinhonhat).
+def vitrinhonhat(mang):
+    # Giả sử phần tử đầu tiên là nhỏ nhất
+    min_value = mang[0]
+    min_index = 0
+    # Duyệt qua mảng từ phần tử thứ hai trở đi
+    for i in range(1, len(mang)):
+        if mang[i] < min_value:  # Nếu phần tử nhỏ hơn giá trị nhỏ nhất hiện tại
+            min_value = mang[i]
+            min_index = i  # Cập nhật vị trí của giá trị nhỏ nhất
+    return min_index  # Trả về vị trí của giá trị nhỏ nhất
+
+# Nhập mảng các số thực
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(float(input(f"Phần tử {i+1}: ")))
+
+# Tìm vị trí của giá trị nhỏ nhất trong mảng
+min_index = vitrinhonhat(mang)
+
+# In kết quả
+print("Vị trí của giá trị nhỏ nhất trong mảng là:", min_index)
+
+116.	Tìm “vị trí của giá trị chẵn đầu tiên” trong mảng một chiều các số nguyên (vitrichandau). Nếu mảng không có giá trị chẵn thì hàm sẽ trả về giá trị là – 1.
+def vitrichandau(mang):
+    # Duyệt qua mảng từ phần tử đầu tiên
+    for i in range(len(mang)):
+        if mang[i] % 2 == 0:  # Kiểm tra nếu là số chẵn
+            return i  # Trả về vị trí của số chẵn đầu tiên
+    return -1  # Nếu không có số chẵn nào, trả về -1
+
+# Nhập mảng các số nguyên
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(int(input(f"Phần tử {i+1}: ")))
+
+# Tìm vị trí của giá trị chẵn đầu tiên trong mảng
+first_even_index = vitrichandau(mang)
+
+# In kết quả
+if first_even_index != -1:
+    print("Vị trí của giá trị chẵn đầu tiên trong mảng là:", first_even_index)
+else:
+    print("Mảng không có giá trị chẵn.")
+
+117.	Tìm “vị trí số hoàn thiện cuối cùng” trong mảng một chiều các số nguyên (vitrihoanthiencuoi). Nếu mảng không có số hoàn thiện thì trả về giá trị - 1.
+def is_perfect(num):
+    if num < 1:
+        return False
+    sum_of_divisors = 0
+    for i in range(1, num // 2 + 1):
+        if num % i == 0:
+            sum_of_divisors += i
+    return sum_of_divisors == num
+
+def vitrihoanthiencuoi(mang):
+    # Duyệt qua mảng từ cuối đến đầu
+    for i in range(len(mang) - 1, -1, -1):
+        if is_perfect(mang[i]):  # Kiểm tra nếu là số hoàn thiện
+            return i  # Trả về vị trí của số hoàn thiện cuối cùng
+    return -1  # Nếu không có số hoàn thiện nào, trả về -1
+
+# Nhập mảng các số nguyên
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(int(input(f"Phần tử {i+1}: ")))
+
+# Tìm vị trí của số hoàn thiện cuối cùng trong mảng
+last_perfect_index = vitrihoanthiencuoi(mang)
+
+# In kết quả
+if last_perfect_index != -1:
+    print("Vị trí của số hoàn thiện cuối cùng trong mảng là:", last_perfect_index)
+else:
+    print("Mảng không có số hoàn thiện.")
+
+118.	Hãy tìm “giá trị dương nhỏ nhất” trong mảng các số thực
+(duongnhonhat). Nếu mảng không có giá trị dương thì trả về giá trị không dương là – 1.
+def giaduyongnhohat(mang):
+    min_positive = float('inf')  # Khởi tạo với giá trị vô cùng lớn
+    for num in mang:
+        if num > 0 and num < min_positive:  # Kiểm tra nếu là số dương và nhỏ hơn min_positive
+            min_positive = num  # Cập nhật giá trị dương nhỏ nhất
+    return min_positive if min_positive != float('inf') else -1  # Nếu không có số dương, trả về -1
+
+# Nhập mảng các số thực
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(float(input(f"Phần tử {i+1}: ")))
+
+# Tìm giá trị dương nhỏ nhất trong mảng
+min_positive_value = giaduyongnhohat(mang)
+
+# In kết quả
+if min_positive_value != -1:
+    print("Giá trị dương nhỏ nhất trong mảng là:", min_positive_value)
+else:
+    print("Mảng không có giá trị dương.")
+
+119.	Hãy tìm “vị trí giá trị dương nhỏ nhất” trong mảng một chiều các số thực (vtduongnhonhat). Nếu mảng không có giá trị dương thì trả về một giá trị ngoài đoạn [0,n-1] là -1 nhằm mô tả không có vị trí nào thỏa điều kiện.
+def vtduongnhonhat(mang):
+    min_positive = float('inf')  # Khởi tạo giá trị vô cùng lớn
+    min_pos_index = -1  # Khởi tạo chỉ số của giá trị dương nhỏ nhất là -1
+    for i in range(len(mang)):
+        if mang[i] > 0 and mang[i] < min_positive:  # Nếu là số dương và nhỏ hơn giá trị nhỏ nhất hiện tại
+            min_positive = mang[i]  # Cập nhật giá trị dương nhỏ nhất
+            min_pos_index = i  # Lưu vị trí của giá trị dương nhỏ nhất
+    return min_pos_index  # Trả về vị trí hoặc -1 nếu không có giá trị dương
+
+# Nhập mảng các số thực
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(float(input(f"Phần tử {i+1}: ")))
+
+# Tìm vị trí của giá trị dương nhỏ nhất trong mảng
+min_positive_index = vtduongnhonhat(mang)
+
+# In kết quả
+if min_positive_index != -1:
+    print("Vị trí của giá trị dương nhỏ nhất trong mảng là:", min_positive_index)
+else:
+    print("Mảng không có giá trị dương.")
+
+120.	Tìm “giá trị nhỏ nhất” trong mảng một chiều số thực (nhonhat).
+def nhonhat(mang):
+    min_value = float('inf')  # Khởi tạo giá trị vô cùng lớn
+    for num in mang:
+        if num < min_value:  # Nếu tìm thấy giá trị nhỏ hơn giá trị hiện tại của min_value
+            min_value = num  # Cập nhật giá trị nhỏ nhất
+    return min_value  # Trả về giá trị nhỏ nhất trong mảng
+
+# Nhập mảng các số thực
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(float(input(f"Phần tử {i+1}: ")))
+
+# Tìm giá trị nhỏ nhất trong mảng
+min_value = nhonhat(mang)
+
+# In kết quả
+print("Giá trị nhỏ nhất trong mảng là:", min_value)
+
+121.		Viết hàm tìm “số chẵn đầu tiên” trong mảng các số nguyên (chandau). Nếu mảng không có giá trị chẵn thì hàm sẽ trả về giá trị không chẵn là 1.
+def chandau(mang):
+    for num in mang:
+        if num % 2 == 0:  # Kiểm tra nếu phần tử là số chẵn
+            return num  # Trả về số chẵn đầu tiên
+    return 1  # Nếu không có số chẵn, trả về 1
+
+# Nhập mảng các số nguyên
+n = int(input("Nhập số lượng phần tử trong mảng: "))
+mang = []
+
+print("Nhập các phần tử trong mảng:")
+for i in range(n):
+    mang.append(int(input(f"Phần tử {i+1}: ")))
+
+# Tìm số chẵn đầu tiên trong mảng
+first_even = chandau(mang)
+
+# In kết quả
+print("Số chẵn đầu tiên trong mảng là:", first_even)
+
+ 
+122.	Tìm “số nguyên tố đầu tiên” trong mảng một chiều các số nguyên (nguyentodau). Nếu mảng không có số nguyên tố thì trả về giá trị -1.
+def is_prime(n):
+    """Kiểm tra một số nguyên n có phải là số nguyên tố không."""
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def nguyentodau(arr):
+    """Tìm số nguyên tố đầu tiên trong mảng."""
+    for num in arr:
+        if is_prime(num):
+            return num
+    return -1
+
+# Ví dụ sử dụng
+arr = [4, 6, 8, 9, 10, 11, 14]
+result = nguyentodau(arr)
+print("Số nguyên tố đầu tiên:", result)
+
+123.	Tìm “số hoàn thiện đầu tiên” trong mảng một chiều các số nguyên (hoanthiendau). Nếu mảng không có số hoàn thiện thì trả về giá trị -1.
+def is_perfect(n):
+    """Kiểm tra một số n có phải là số hoàn thiện không."""
+    if n <= 0:
+        return False
+    divisors_sum = sum(i for i in range(1, n) if n % i == 0)
+    return divisors_sum == n
+
+def hoanthiendau(arr):
+    """Tìm số hoàn thiện đầu tiên trong mảng."""
+    for num in arr:
+        if is_perfect(num):
+            return num
+    return -1
+
+# Ví dụ sử dụng
+arr = [4, 6, 8, 9, 10, 28]
+result = hoanthiendau(arr)
+print("Số hoàn thiện đầu tiên:", result)
+
+124.	Tìm giá trị âm đầu tiên trong mảng một chiều các sô thực (amdau). Nếu mảng không có giá trị âm thì trả về giá trị không âm là giá trị 1.
+def amdau(arr):
+    """Tìm giá trị âm đầu tiên trong mảng."""
+    for num in arr:
+        if num < 0:
+            return num
+    return 1  # Trả về 1 nếu không có giá trị âm
+
+# Ví dụ sử dụng
+arr = [3.5, 0.0, 2.1, -4.6, 5.0]
+result = amdau(arr)
+print("Giá trị âm đầu tiên:", result)
+
+125.	Tìm “số dương cuối cùng” trong mảng số thực (duongcuoi). Nếu mảng không có giá trị dương thì trả về giá trị - 1.
+def duongcuoi(arr):
+    """Tìm số dương cuối cùng trong mảng."""
+    for num in reversed(arr):  # Duyệt ngược qua mảng
+        if num > 0:
+            return num
+    return -1  # Trả về -1 nếu không có giá trị dương
+
+# Ví dụ sử dụng
+arr = [-3.5, 0.0, -2.1, 4.6, 5.0]
+result = duongcuoi(arr)
+print("Số dương cuối cùng:", result)
+
+126.	Tìm “số nguyên tố cuối cùng” trong mảng một chiều các số nguyên (nguyentocuoi). Nếu mảng không có số nguyên tố thì trả về giá trị -1.
+def is_prime(n):
+    """Kiểm tra một số nguyên n có phải là số nguyên tố không."""
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def nguyentocuoi(arr):
+    """Tìm số nguyên tố cuối cùng trong mảng."""
+    for num in reversed(arr):  # Duyệt mảng từ cuối về đầu
+        if is_prime(num):
+            return num
+    return -1  # Trả về -1 nếu không có số nguyên tố
+
+# Ví dụ sử dụng
+arr = [4, 6, 8, 9, 10, 11, 15, 13]
+result = nguyentocuoi(arr)
+print("Số nguyên tố cuối cùng:", result)
+
+127.		Tìm “số hoàn thiện cuối cùng” trong mảng một chiều các số nguyên (hoanthiencuoi). Nếu mảng không có số hoàn thiện thì hàm sẽ trả về giá trị -1.
+def is_perfect(n):
+    """Kiểm tra một số n có phải là số hoàn thiện không."""
+    if n <= 0:
+        return False
+    divisors_sum = sum(i for i in range(1, n) if n % i == 0)
+    return divisors_sum == n
+
+def hoanthiencuoi(arr):
+    """Tìm số hoàn thiện cuối cùng trong mảng."""
+    for num in reversed(arr):  # Duyệt mảng từ cuối về đầu
+        if is_perfect(num):
+            return num
+    return -1  # Trả về -1 nếu không có số hoàn thiện
+
+# Ví dụ sử dụng
+arr = [4, 6, 8, 9, 28, 12]
+result = hoanthiencuoi(arr)
+print("Số hoàn thiện cuối cùng:", result)
+
+128.	Hãy tìm “giá trị âm lớn nhất” trong mảng các số thực (amlonnhat). Nếu mảng không có giá trị âm thì trả về giá trị 0.
+def amlonnhat(arr):
+    """Tìm giá trị âm lớn nhất trong mảng."""
+    max_negative = None  # Biến lưu giá trị âm lớn nhất
+    for num in arr:
+        if num < 0:  # Kiểm tra số âm
+            if max_negative is None or num > max_negative:
+                max_negative = num
+    return max_negative if max_negative is not None else 0  # Trả về 0 nếu không có số âm
+
+# Ví dụ sử dụng
+arr = [-3.5, -1.2, 0.0, 2.1, -4.6, 5.0]
+result = amlonnhat(arr)
+print("Giá trị âm lớn nhất:", result)
+
+129.	Hãy tìm “số nguyên tố lớn nhất” trong mảng một chiều các số nguyên (nguyentolonnhat). Nếu mảng không có số nguyên tố thì trả về giá trị 0.
+def is_prime(n):
+    """Kiểm tra một số nguyên n có phải là số nguyên tố không."""
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def nguyentolonnhat(arr):
+    """Tìm số nguyên tố lớn nhất trong mảng."""
+    max_prime = 0  # Biến lưu số nguyên tố lớn nhất, mặc định là 0
+    for num in arr:
+        if is_prime(num) and num > max_prime:
+            max_prime = num
+    return max_prime
+
+# Ví dụ sử dụng
+arr = [4, 6, 8, 9, 10, 11, 15, 13, 2]
+result = nguyentolonnhat(arr)
+print("Số nguyên tố lớn nhất:", result)
+
